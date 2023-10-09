@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- This app is suposed to send whatsapp messages to its users reminding them of their contacts birthdays
 
-Things you may want to cover:
+TO-DO
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Implement CRUD
+- API for Login with FB and Google
+- API for WPP messages
+- Message day after of login to ensure user of functionality and send the closest birthday
