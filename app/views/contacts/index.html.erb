@@ -1,30 +1,42 @@
-<div class="container">
-  <h1>Bem Vindo, <%= @user.first_name %></h1>
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newContactModal">
-    Novo Contato
-  </button>
-  <!-- Modal -->
-  <div class="modal fade" id="newContactModal" tabindex="-1" aria-labelledby="newContactModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="newContactModalLabel">Crie um Novo Contato</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <%= simple_form_for(@new_contact) do |f| %>
-            <div class="form-inputs">
-              <%= f.input :name %>
-              <%= f.input :birthday %>
+<div class="container vh-100">
+  <div class="h-100 d-flex flex-column align-itens-center px-5 mx-5 mt-5 my-5">
+    <div class="d-flex justify-content-between mt-5 mb-3">
+      <h1 class="">Bem Vindo, <%= @user.first_name.capitalize %></h1>
+      <%= render "setting_menu" %>
+    </div>
+    <div class="d-flex">
+      <div class="col-10 mx-2 text-center">
+        <%= month_calendar(attribute: :birthday, events: @contacts) do |date, contacts| %>
+          <%= date.day %>
+          <% contacts.each do |contact| %>
+            <div class="card-header">
+              <div class="card-title">
+                <%= contact.name %>
+              </div>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary"><%= f.button :submit %></button>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-2 d-flex flex-column mx-2">
+        <%= render "new_contact_modal", contact: @contact %>
+        <% @contacts.each do |contact| %>
+          <div class="d-flex justify-content-between">
+            <%= contact.name.capitalize %>
+            <ul>
+              <%= render "edit_contact_modal", contact: contact %>
+              <%= link_to(
+                    "",
+                    contact_path(contact),
+                    data: {
+                      turbo_method: :delete,
+                      turbo_confirm: 'You sure?'
+                    },
+                    class: "fa-solid fa-trash h-auto ms-2 text-reset"
+                ) %>
+            </ul>
           </div>
         <% end %>
       </div>
     </div>
   </div>
-  <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete } %>
 </div>

@@ -1,0 +1,26 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary align-self-center mb-3" data-bs-toggle="modal" data-bs-target="#newContactModal">
+  Novo Contato
+</button>
+<!-- Modal -->
+<div class="modal fade" id="newContactModal" tabindex="-1" aria-labelledby="newContactModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="newContactModalLabel">Crie um Novo Contato</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(contact) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :name %>
+            <%= f.input :birthday %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary"><%= f.button :submit %></button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

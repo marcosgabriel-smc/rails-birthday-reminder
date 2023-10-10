@@ -1,0 +1,24 @@
+<!-- Button trigger modal for edit -->
+<a type="button" class="fa-regular fa-pen-to-square text-reset" data-bs-toggle="modal" data-bs-target="#editContactModal"></a>
+<!-- Modal for edit -->
+<div class="modal fade" id="editContactModal" tabindex="-1" aria-labelledby="editContactModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editContactModalLabel">Edit Contact</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(contact, method: :patch) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :name, input_html: { value: contact.name } %>
+            <%= f.input :birthday, input_html: { value: contact.birthday } %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary"><%= f.button :submit, 'Update Contact' %></button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
