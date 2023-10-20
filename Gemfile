@@ -79,5 +79,5 @@ gem 'pundit'
 gem 'simple_form'
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.4.2"
-
 gem "simple_calendar", "~> 3.0"
+gem "faker"
