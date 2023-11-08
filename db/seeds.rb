@@ -16,7 +16,7 @@ Contact.destroy_all
 # USERS
 ######################################################################
 puts 'Creating user...'
-User.create!(
+marcos = User.create!(
   {
     first_name: 'Marcos',
     last_name: 'Gabriel',
@@ -26,13 +26,23 @@ User.create!(
   }
 )
 
+felipe = User.create!(
+  {
+    first_name: 'Felipe',
+    last_name: 'Souza',
+    password: '123456',
+    email: 'felipe@birthday.com',
+    telegram_id: ENV['FELIPE_TELEGRAM']
+  }
+)
+
 # CONTACTS
 ######################################################################
 puts 'Creating some contacts...'
 100.times do
   Contact.create!(
     {
-      user: User.last,
+      user: marcos,
       name: Faker::Name.name,
       birthday: Faker::Date.between(from: '2014-09-23', to: '2015-09-25')
     }
@@ -43,7 +53,17 @@ puts 'Creating contacts with birthday today...'
 5.times do
   Contact.create!(
     {
-      user: User.last,
+      user: marcos,
+      name: Faker::Name.name,
+      birthday: Date.today
+    }
+  )
+end
+
+2.times do
+  Contact.create!(
+    {
+      user: felipe,
       name: Faker::Name.name,
       birthday: Date.today
     }

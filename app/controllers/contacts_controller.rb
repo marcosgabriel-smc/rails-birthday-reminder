@@ -6,6 +6,7 @@ class ContactsController < ApplicationController
     @user = current_user
     @contacts = policy_scope(Contact)
     @contact = Contact.new
+    @grouped_contacts = Contact.group_contacts_by_month(@contacts)
   end
 
   def create

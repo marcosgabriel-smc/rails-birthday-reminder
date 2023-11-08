@@ -1,31 +1,15 @@
 <div class="container vh-100">
-  <div class="h-100 d-flex flex-column align-itens-center px-5 mx-5 mt-5 my-5">
-    <div class="d-flex justify-content-between mt-5 mb-3">
-      <h1 class="">Bem Vindo, <%= @user.first_name.capitalize %></h1>
-      <%= link_to "Send Messages", send_message_path, data: { turbo_method: :post } %>
-      <%= render "setting_menu" %>
-    </div>
-    <div class="d-flex">
-      <div class="col-10 mx-2 text-center">
-        <%= month_calendar(attribute: :birthday, events: @contacts) do |date, contacts| %>
-          <%= date.day %>
-          <% contacts.each do |contact| %>
-            <div class="card-header">
-              <div class="card-title">
-                <%= contact.name %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="col-2 d-flex flex-column mx-2">
-        <%= render "new_contact_modal", contact: @contact %>
-        <% @contacts.each do |contact| %>
-          <div class="d-flex justify-content-between">
-            <%= contact.name.capitalize %>
-            <ul>
-              <%= render "edit_contact_modal", contact: contact %>
-              <%= link_to(
+  <%= link_to "Send Messages", send_message_path, data: { turbo_method: :post } %>
+  <%= render "new_contact_modal", contact: @contact %>
+  <h1>Contacts</h1>
+  <% @grouped_contacts.each do |month, contacts| %>
+    <h2><%= month.to_s.capitalize %></h2>
+    <% contacts.each do |contact| %>
+      <div class="d-flex justify-content-between">
+        <%= contact.name.capitalize %>
+        <ul>
+          <%= render "edit_contact_modal", contact: contact %>
+          <%= link_to(
                     "",
                     contact_path(contact),
                     data: {
@@ -34,10 +18,8 @@
                     },
                     class: "fa-solid fa-trash h-auto ms-2 text-reset"
                 ) %>
-            </ul>
-          </div>
-        <% end %>
+        </ul>
       </div>
-    </div>
-  </div>
+    <% end %>
+  <% end %>
 </div>
