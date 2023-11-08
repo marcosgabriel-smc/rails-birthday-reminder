@@ -34,4 +34,9 @@ class ContactPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def telegram_login?
+    true
+  end
+
 end

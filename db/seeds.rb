@@ -21,7 +21,8 @@ User.create!(
     first_name: 'Marcos',
     last_name: 'Gabriel',
     password: '123456',
-    email: 'marcos@birthday.com'
+    email: 'marcos@birthday.com',
+    telegram_id: '1456378930'
   }
 )
 
