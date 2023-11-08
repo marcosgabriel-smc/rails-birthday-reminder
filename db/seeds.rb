@@ -22,7 +22,7 @@ User.create!(
     last_name: 'Gabriel',
     password: '123456',
     email: 'marcos@birthday.com',
-    telegram_id: '1456378931'
+    telegram_id: ENV['MY_TELEGRAM_ID']
   }
 )
 
