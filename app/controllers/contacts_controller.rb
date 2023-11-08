@@ -28,28 +28,7 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact.destroy
-
     redirect_to contacts_path notice: "Contact was successfully destroyed."
-  end
-
-  def birthday_message
-    @user = current_user
-    @contacts = policy_scope(Contact)
-    @birthdays = @contacts.today_birthdays
-
-    @birthday.for_each do |birthday|
-      text = "#{@user.first_name}, hoje é o aniversário do #{birthday.name}"
-      chat_id = @user.chat_id
-      HTTParty.post("https://api.telegram.org/bot#{BOT_TOKEN}/sendMessage",
-        headers: {
-          'Content-Type' => 'application/json'
-        },
-        body: {
-          chat_id: chat_id,
-          text: text
-        }.to_json)
-    end
-    redirect_to contacts_path, notice: "sucess"
   end
 
   def telegram_login
@@ -68,6 +47,11 @@ class ContactsController < ApplicationController
       )
       render 'devise/registrations/new'
     end
+  end
+
+  def send_message
+    TelegramMailer.send_birthday_message.deliver_now
+    redirect_to contacts_path, notice: 'Messages delivered.'
   end
 
   private

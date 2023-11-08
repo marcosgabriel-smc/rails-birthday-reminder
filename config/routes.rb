@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   resources :contacts
 
+  post '/contacts/send_message', to: 'contacts#send_message', as: :send_message
+
 end

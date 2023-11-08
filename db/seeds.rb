@@ -39,5 +39,16 @@ puts 'Creating some contacts...'
   )
 end
 
+puts 'Creating contacts with birthday today...'
+5.times do
+  Contact.create!(
+    {
+      user: User.last,
+      name: Faker::Name.name,
+      birthday: Date.today
+    }
+  )
+end
+
 #####################################################################
 puts 'Finished!'

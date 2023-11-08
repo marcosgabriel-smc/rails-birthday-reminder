@@ -39,4 +39,7 @@ class ContactPolicy < ApplicationPolicy
     true
   end
 
+  def send_message?
+    true
+  end
 end

@@ -2,6 +2,7 @@
   <div class="h-100 d-flex flex-column align-itens-center px-5 mx-5 mt-5 my-5">
     <div class="d-flex justify-content-between mt-5 mb-3">
       <h1 class="">Bem Vindo, <%= @user.first_name.capitalize %></h1>
+      <%= link_to "Send Messages", send_message_path, data: { turbo_method: :post } %>
       <%= render "setting_menu" %>
     </div>
     <div class="d-flex">
