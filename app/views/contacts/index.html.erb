@@ -1,15 +1,21 @@
 <div class="container vh-100">
   <%= link_to "Send Messages", send_message_path, data: { turbo_method: :post } %>
-  <%= render "new_contact_modal", contact: @contact %>
-  <h1>Contacts</h1>
-  <% @grouped_contacts.each do |month, contacts| %>
-    <h2><%= month.to_s.capitalize %></h2>
-    <% contacts.each do |contact| %>
-      <div class="d-flex justify-content-between">
-        <%= contact.name.capitalize %>
-        <ul>
-          <%= render "edit_contact_modal", contact: contact %>
-          <%= link_to(
+  <div class="p-5 m-5">
+    <div class="d-flex justify-content-between">
+      <h1>Aniversariantes Cadastrados</h1>
+      <%= render "new_contact_modal", contact: @contact %>
+    </div>
+    <% @grouped_contacts.each do |month, contacts| %>
+      <h2><%= month.to_s.capitalize %></h2>
+      <% contacts.each do |contact| %>
+        <div class="d-flex justify-content-between">
+          <div>
+            <%= contact.birthday %>
+            <%= contact.name.capitalize %>
+          </div>
+          <ul>
+            <%= render "edit_contact_modal", contact: contact %>
+            <%= link_to(
                     "",
                     contact_path(contact),
                     data: {
@@ -18,8 +24,9 @@
                     },
                     class: "fa-solid fa-trash h-auto ms-2 text-reset"
                 ) %>
-        </ul>
-      </div>
+          </ul>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
