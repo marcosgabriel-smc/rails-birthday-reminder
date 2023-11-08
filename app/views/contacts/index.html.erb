@@ -6,7 +6,7 @@
       <%= render "new_contact_modal", contact: @contact %>
     </div>
     <% @grouped_contacts.each do |month, contacts| %>
-      <h2><%= month.to_s.capitalize %></h2>
+      <h2><%= t("date.month_names")[Date::MONTHNAMES.index(month.to_s.capitalize)] %></h2>
       <% contacts.each do |contact| %>
         <div class="d-flex justify-content-between">
           <div>
