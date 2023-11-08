@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :contacts, dependent: :destroy
+
+  validates :telegram_id, presence: true
 end

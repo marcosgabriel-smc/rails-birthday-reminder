@@ -53,17 +53,20 @@ class ContactsController < ApplicationController
   end
 
   def telegram_login
-    # Extract the Telegram ID from the authentication response
     telegram_id = params[:id]
 
-    # Find the user with the matching Telegram ID
     user = User.find_by(telegram_id: telegram_id)
 
     if user
-      sign_in(user) # Create a user session
+      sign_in(user)
       redirect_to contacts_path, notice: 'Logged in successfully via Telegram.'
     else
-      redirect_to new_user_registration_path, alert: 'Telegram login failed. User not found.'
+      @new_user = User.new(
+        telegram_id: params[:id],
+        first_name: params[:first_name],
+        last_name: params[:last_name]
+      )
+      render 'devise/registrations/new'
     end
   end
 
