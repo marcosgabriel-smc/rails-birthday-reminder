@@ -1,8 +1,11 @@
 <div class="container vh-100">
-  <%= link_to "Send Messages", send_message_path, data: { turbo_method: :post } %>
-  <div class="p-5 m-5">
+  <div class="p-5 m-5 main-page">
+    <%= link_to "Send Messages", send_message_path, data: { turbo_method: :post } %>
     <div class="d-flex justify-content-between">
       <h1>Aniversariantes Cadastrados</h1>
+      <%= render "setting_menu" %>
+    </div>
+    <div class=" my-3 text-center">
       <%= render "new_contact_modal", contact: @contact %>
     </div>
     <% @grouped_contacts.each do |month, contacts| %>

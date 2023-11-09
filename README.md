@@ -1,10 +1,12 @@
 # README
 
-- This app is suposed to send whatsapp messages to its users reminding them of their contacts birthdays
+- Welcome to your Birthday Reminder Telegram Bot
+- This app will send you telegram messages reminding them of their contacts birthdays.
 
 TO-DO
 
-- Implement CRUD
-- API for Login with FB and Google
-- API for WPP messages
-- Message day after of login to ensure user of functionality and send the closest birthday
+- Implement cron job for daily checks
+- Implement sharing contacts logic
+- Home page/login design
+- Devise pages design
+- Contacs index design
