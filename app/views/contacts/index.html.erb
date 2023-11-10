@@ -1,6 +1,5 @@
 <div class="container vh-100">
   <div class="p-5 m-5 main-page">
-    <%= link_to "Send Messages", send_message_path, data: { turbo_method: :post } %>
     <div class="d-flex justify-content-between">
       <h1>Aniversariantes Cadastrados</h1>
       <%= render "setting_menu" %>
@@ -32,4 +31,5 @@
       <% end %>
     <% end %>
   </div>
+  <%= link_to "Send Messages", send_message_path, data: { turbo_method: :post } %>
 </div>
