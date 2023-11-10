@@ -1,9 +1,8 @@
-<div class="container vh-100 p-5 d-flex flex-column align-items-center justify-content-center">
+<div class="container vh-100 mt-5 p-5 d-flex flex-column align-items-center justify-content-center">
   <div class="mb-0">
     <%= image_tag("logof_banner.png", class: "img-fluid") %>
   </div>
-  <div class="card login my-3" style="width: 28rem;">
-    <%# <img src="..." class="card-img-top" alt="..."> %>
+  <div class="card login my-3" style="width: 100%; max-width: 28rem;">
     <div class="card-body">
       <h5 class="card-title text-center fw-bold">Bem-vindo ao seu novo bot preferido!</h5>
       <p class="card-text fst-italic">O Lembrete Amigo é um bot do Telegram que não te deixa esquecer o aniversário de nenhuma pessoa querida</p>
@@ -22,7 +21,6 @@
           <%= f.button :submit, "Log in", class: "btn btn-primary" %>
         </div>
       <% end %>
-      <!-- <p class="card-text mt-3"><%= link_to "Esqueceu sua senha?", new_password_path(resource_name) %></p>-->
     </div>
     <div class="d-flex flex-column align-items-center justify-content-center mb-3">
       <h6 class="card-title">Primeiro acesso? Entre via Telegram!</h6>
