@@ -1,0 +1,36 @@
+.main-page {
+  background-color: $dark-yellow;
+  border-radius: 20px;
+}
+
+.index-title {
+  color: $green;
+  // animation: colorAnimation 6s infinite;
+}
+
+@keyframes colorAnimation {
+  0% {
+    color: $red;
+  }
+  50% {
+    color: $light-yellow;
+  }
+  100% {
+    color: $green;
+  }
+}
+
+
+.month-written {
+  border-bottom: 3px solid $red;
+  color: $red;
+}
+
+.contact-name {
+  color: $green;
+  ;
+}
+
+.date-written {
+  font-family: 'Times New Roman', Times, serif;
+}

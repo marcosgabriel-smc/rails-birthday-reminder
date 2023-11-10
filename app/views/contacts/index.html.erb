@@ -1,23 +1,24 @@
-<div class="container vh-100">
-  <div class="p-5 m-5 main-page">
-    <div class="d-flex justify-content-between">
-      <h1>Aniversariantes Cadastrados</h1>
+<div class="container vh-100 p-5">
+  <div class="main-page m-5 p-0 d-flex flex-column">
+    <div class="w-100 d-flex justify-content-end">
       <%= render "setting_menu" %>
     </div>
-    <div class=" my-3 text-center">
-      <%= render "new_contact_modal", contact: @contact %>
-    </div>
-    <% @grouped_contacts.each do |month, contacts| %>
-      <h2><%= t("date.month_names")[Date::MONTHNAMES.index(month.to_s.capitalize)] %></h2>
-      <% contacts.each do |contact| %>
-        <div class="d-flex justify-content-between">
-          <div>
-            <%= contact.birthday %>
-            <%= contact.name.capitalize %>
-          </div>
-          <ul>
-            <%= render "edit_contact_modal", contact: contact %>
-            <%= link_to(
+    <div class="px-5">
+      <div class="d-flex flex-column justify-content-center mt-0 mb-3">
+        <h1 class="index-title text-center">Aniversariantes Cadastrados</h1>
+        <%= render "new_contact_modal", contact: @contact %>
+      </div>
+      <% @grouped_contacts.each do |month, contacts| %>
+        <h3 class="month-written text-end"><%= t("date.month_names")[Date::MONTHNAMES.index(month.to_s.capitalize)] %></h3>
+        <% contacts.each do |contact| %>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-column mb-2">
+              <h5 class="mb-0 contact-name"><%= contact.name.capitalize %></h5>
+              <%= content_tag(:span, I18n.l(contact.birthday, format: '%d de %B'), class: "date-written fs-6 fst-italic") %>
+            </div>
+            <ul>
+              <%= render "edit_contact_modal", contact: contact %>
+              <%= link_to(
                     "",
                     contact_path(contact),
                     data: {
@@ -26,10 +27,11 @@
                     },
                     class: "fa-solid fa-trash h-auto ms-2 text-reset"
                 ) %>
-          </ul>
-        </div>
+            </ul>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
   <%= link_to "Send Messages", send_message_path, data: { turbo_method: :post } %>
 </div>

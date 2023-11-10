@@ -1,6 +1,6 @@
 body {
   background-image: url(party_emoji.png);
-  background-color: #F3E99F;
+  background-color: $light-yellow;
   background-size: 40px 40px;
   animation: snakeAnimation 4s linear infinite;
 }
@@ -14,16 +14,6 @@ body {
   }
 }
 
-.main-page {
-  background-color: #F7D060;
-}
-
 .login {
-  background-color: #F7D060;
-}
-
-.starburst {
-  background-image: url(red_starburst.png);
-  background-size: cover;
-  background-position: center;
+  background-color: $dark-yellow;
 }

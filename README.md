@@ -7,6 +7,6 @@ TO-DO
 
 - Implement cron job for daily checks
 - Implement sharing contacts logic
-- Home page/login design
 - Devise pages design
-- Contacs index design
+- Contacs index final touches in design and responsivness
+- Include search bar for contacts
