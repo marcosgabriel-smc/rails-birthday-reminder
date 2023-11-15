@@ -1,9 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="shareable-link"
 export default class extends Controller {
-  static targets = ["contactId"];
-  static targets = ['flash'];
+  static targets = ["contact"];
+
 
   addContact(event) {
     const contactId = event.target.dataset.contactId;
@@ -20,8 +19,12 @@ export default class extends Controller {
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          // Assuming you want to display a message on success
           console.log(data.message);
+
+          console.log(contactId)
+          const contactContainer = this.contactTargets.find(container => container.dataset.contactId === contactId);
+          console.log(contactContainer)
+          this.removeContact(contactId);
         } else {
           console.error(data.message);
         }
@@ -29,5 +32,13 @@ export default class extends Controller {
       .catch(error => {
         console.error('Error adding contact:', error);
       });
+  }
+
+  removeContact(contactId) {
+    const contactContainer = this.contactTargets.find(container => container.dataset.contactId === contactId);
+
+    if (contactContainer) {
+      contactContainer.remove();
+    }
   }
 }

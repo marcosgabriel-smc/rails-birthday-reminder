@@ -11,3 +11,4 @@ TO-DO
 - Contacs index final touches in design and responsivness
 - Include search bar for contacts
 - Customize 404 and Errors
+- Redirect the user after login to the shareable_link page logic.

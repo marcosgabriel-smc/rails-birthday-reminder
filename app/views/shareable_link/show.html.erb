@@ -1,6 +1,6 @@
 <div class="container" data-controller="shareable-link">
   <% @contacts.each do |contact| %>
-    <div class="d-flex justify-content-between">
+    <div class="contact-container d-flex justify-content-between" data-shareable-link-target="contact" data-contact-id="<%= contact.id %>">
       <div class="d-flex flex-column mb-2">
         <h5 class="mb-0 contact-name"><%= contact.name.capitalize %></h5>
         <%= content_tag(:span, I18n.l(contact.birthday, format: '%d de %B'), class: "date-written fs-6 fst-italic") %>
