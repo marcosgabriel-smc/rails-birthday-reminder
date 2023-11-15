@@ -6,19 +6,59 @@
     <div class="px-5">
       <div class="d-flex flex-column justify-content-center mt-0 mb-3">
         <h1 class="index-title text-center">Aniversariantes Cadastrados</h1>
-        <%= render "new_contact_modal", contact: @contact %>
+        <div class="d-flex">
+          <%= render "new_contact_modal", contact: @contact %>
+          <%= form_with url: contacts_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Encontre um contato"
+            %>
+            <%= submit_tag "Procurar", name: "", class: "btn btn-primary" %>
+          <% end %>
+        </div>
       </div>
-      <% @grouped_contacts.each do |month, contacts| %>
-        <h3 class="month-written text-end"><%= t("date.month_names")[Date::MONTHNAMES.index(month.to_s.capitalize)] %></h3>
-        <% contacts.each do |contact| %>
-          <div class="d-flex justify-content-between">
-            <div class="d-flex flex-column mb-2">
-              <h5 class="mb-0 contact-name"><%= contact.name.capitalize %></h5>
-              <%= content_tag(:span, I18n.l(contact.birthday, format: '%d de %B'), class: "date-written fs-6 fst-italic") %>
+      <% if params[:query].present? %>
+        <% @grouped_contacts.each do |month, contacts| %>
+          <% if contacts.present? %>
+            <h3 class="month-written text-end"><%= t("date.month_names")[Date::MONTHNAMES.index(month.to_s.capitalize)] %></h3>
+          <% end %>
+          <% contacts.each do |contact| %>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex flex-column mb-2">
+                <h5 class="mb-0 contact-name"><%= contact.name.capitalize %></h5>
+                <%= content_tag(:span, I18n.l(contact.birthday, format: '%d de %B'), class: "date-written fs-6 fst-italic") %>
+              </div>
+              <ul>
+                <%= render "edit_contact_modal", contact: contact %>
+                <%= link_to(
+                  "",
+                  contact_path(contact),
+                  data: {
+                    turbo_method: :delete,
+                    turbo_confirm: 'You sure?'
+                  },
+                  class: "fa-solid fa-trash h-auto ms-2 text-reset"
+                ) %>
+              </ul>
             </div>
-            <ul>
-              <%= render "edit_contact_modal", contact: contact %>
-              <%= link_to(
+          <% end %>
+        <% end %>
+      <% else %>
+        <% @grouped_contacts.each do |month, contacts| %>
+          <h3 class="month-written text-end"><%= t("date.month_names")[Date::MONTHNAMES.index(month.to_s.capitalize)] %></h3>
+          <% if contacts.empty? %>
+            <p class="date-written fs-6 fst-italic">Sem aniversariantes cadastrados no mês...</p>
+          <% else %>
+            <% contacts.each do |contact| %>
+              <div class="d-flex justify-content-between">
+                <div class="d-flex flex-column mb-2">
+                  <h5 class="mb-0 contact-name"><%= contact.name.capitalize %></h5>
+                  <%= content_tag(:span, I18n.l(contact.birthday, format: '%d de %B'), class: "date-written fs-6 fst-italic") %>
+                </div>
+                <ul>
+                  <%= render "edit_contact_modal", contact: contact %>
+                  <%= link_to(
                     "",
                     contact_path(contact),
                     data: {
@@ -27,8 +67,10 @@
                     },
                     class: "fa-solid fa-trash h-auto ms-2 text-reset"
                 ) %>
-            </ul>
-          </div>
+                </ul>
+              </div>
+            <% end %>
+          <% end %>
         <% end %>
       <% end %>
     </div>

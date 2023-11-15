@@ -4,8 +4,14 @@ class ContactsController < ApplicationController
 
   def index
     @user = current_user
-    @contacts = policy_scope(Contact)
     @contact = Contact.new
+
+    if params[:query].present?
+      @contacts = policy_scope(Contact).search_by_name(params[:query])
+    else
+      @contacts = policy_scope(Contact)
+    end
+
     @grouped_contacts = Contact.group_contacts_by_month(@contacts)
   end
 
