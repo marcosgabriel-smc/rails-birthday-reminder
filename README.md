@@ -10,3 +10,4 @@ TO-DO
 - Devise pages design
 - Contacs index final touches in design and responsivness
 - Include search bar for contacts
+- Customize 404 and Errors

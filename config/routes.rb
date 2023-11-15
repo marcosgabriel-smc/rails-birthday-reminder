@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 
   post '/contacts/send_message', to: 'contacts#send_message', as: :send_message
 
+  resources :shareable_link, only: [:show, :create]
+
+  match '*unmatched', to: 'application#error_not_found', via: :all
 end

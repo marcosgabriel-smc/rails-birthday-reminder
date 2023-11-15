@@ -48,7 +48,7 @@
         <% @grouped_contacts.each do |month, contacts| %>
           <h3 class="month-written text-end"><%= t("date.month_names")[Date::MONTHNAMES.index(month.to_s.capitalize)] %></h3>
           <% if contacts.empty? %>
-            <p class="date-written fs-6 fst-italic">Sem aniversariantes cadastrados no mês...</p>
+            <p class="date-written fs-6 fst-italic text-center">Sem aniversariantes cadastrados no mês...</p>
           <% else %>
             <% contacts.each do |contact| %>
               <div class="d-flex justify-content-between">

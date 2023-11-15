@@ -1,6 +1,10 @@
 class Contact < ApplicationRecord
   belongs_to :user
 
+  validates :name, presence: true
+  validates :birthday, presence: true
+  validates :name, uniqueness: { scope: :user_id, notice: 'Já existe um contato com essas informações' }
+
   def self.today_birthdays
     where('EXTRACT(month FROM birthday) = ? AND EXTRACT(day FROM birthday) = ?', Date.today.month, Date.today.day)
   end

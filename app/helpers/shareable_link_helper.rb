@@ -1,0 +1,2 @@
+module ShareableLinkHelper
+end

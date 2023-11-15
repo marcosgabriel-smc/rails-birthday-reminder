@@ -15,6 +15,8 @@ class ApplicationController < ActionController::Base
   # end
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  rescue_from ActiveRecord::RecordNotFound, with: :error_not_found
+
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :telegram_id])
@@ -29,6 +31,10 @@ class ApplicationController < ActionController::Base
 
   def after_sign_out_path_for(resource_or_scope)
     new_user_session_path
+  end
+
+  def error_not_found
+    render '/shared/404', status: :not_found, formats: [:html]
   end
 
   private

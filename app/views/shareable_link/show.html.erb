@@ -1,0 +1,16 @@
+<div class="container" data-controller="shareable-link">
+  <% @contacts.each do |contact| %>
+    <div class="d-flex justify-content-between">
+      <div class="d-flex flex-column mb-2">
+        <h5 class="mb-0 contact-name"><%= contact.name.capitalize %></h5>
+        <%= content_tag(:span, I18n.l(contact.birthday, format: '%d de %B'), class: "date-written fs-6 fst-italic") %>
+      </div>
+      <button data-action="click->shareable-link#addContact" data-contact-id="<%= contact.id %>">
+        Add Shared Contact
+      </button>
+    </div>
+  <% end %>
+</div>
+<div data-turbo-frame="flash">
+  <%= render "shared/flashes" %>
+</div>
