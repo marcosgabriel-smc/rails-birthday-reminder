@@ -20,12 +20,10 @@ export default class extends Controller {
       .then(data => {
         if (data.success) {
           console.log(data.message);
-
-          console.log(contactId)
-          const contactContainer = this.contactTargets.find(container => container.dataset.contactId === contactId);
-          console.log(contactContainer)
           this.removeContact(contactId);
+          this.showFlash(data.message);
         } else {
+          this.showFlash(data.message)
           console.error(data.message);
         }
       })
@@ -40,5 +38,26 @@ export default class extends Controller {
     if (contactContainer) {
       contactContainer.remove();
     }
+  }
+
+  showFlash(message) {
+    // Create a new div element
+    const flashDiv = document.createElement('div');
+
+    // Set the HTML content for the new div
+    flashDiv.innerHTML = `
+      <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
+        <span id="flash-notice">${message}</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    `;
+
+    // Append the new div to the body or the appropriate container
+    document.body.appendChild(flashDiv);
+
+    // Optional: Add a timeout to remove the flash after a certain duration
+    setTimeout(() => {
+      flashDiv.remove();
+    }, 5000);
   }
 }

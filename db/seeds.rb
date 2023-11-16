@@ -49,6 +49,16 @@ puts 'Creating some contacts...'
   )
 end
 
+30.times do
+  Contact.create!(
+    {
+      user: felipe,
+      name: Faker::Name.name,
+      birthday: Faker::Date.between(from: '2014-09-23', to: '2015-09-25')
+    }
+  )
+end
+
 puts 'Creating contacts with birthday today...'
 5.times do
   Contact.create!(

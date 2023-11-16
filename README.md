@@ -18,3 +18,4 @@ TO-DO
 - Group logic for contacts Eg. family, friends, worc etc.
 - Create tests
 - Possibility for the user to access its own sharing link (pundit)
+- Mailer

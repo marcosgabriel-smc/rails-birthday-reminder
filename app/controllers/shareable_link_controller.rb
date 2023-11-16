@@ -7,7 +7,10 @@ class ShareableLinkController < ApplicationController
     @sharing_user = User.find_by(shareable_token: params[:id])
     @contacts = @sharing_user.contacts if @sharing_user.present?
 
-    if @sharing_user.present?
+    if params[:query].present? && @sharing_user.present?
+      current_user_contacts = current_user.contacts.pluck(:name, :birthday)
+      @contacts = @sharing_user.contacts.where.not(name: current_user_contacts.map(&:first), birthday: current_user_contacts.map(&:last)).search_by_name(params[:query])
+    elsif @sharing_user.present?
       current_user_contacts = current_user.contacts.pluck(:name, :birthday)
       @contacts = @sharing_user.contacts.where.not(name: current_user_contacts.map(&:first), birthday: current_user_contacts.map(&:last))
     else
@@ -28,10 +31,9 @@ class ShareableLinkController < ApplicationController
     )
 
     if new_contact.save
-      render json: { success: true, message: 'Contact added successfully.' }, notice: 'Aniversariante adicionado!'
+      render json: { success: true, message: 'Aniversariante adicionado!' }
     else
-      flash.now[:alert] = 'Já existe um aniversariante com essas informações.'
-      render json: { success: false, message: 'Failed to add contact.' }, status: :unprocessable_entity, notice: 'Já existe um aniversariante com essas informações.'
+      render json: { success: false, message: 'Já existe um aniversariante com essas informações.' }, status: :unprocessable_entity
     end
   end
 end

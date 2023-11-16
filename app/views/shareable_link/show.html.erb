@@ -1,16 +1,27 @@
 <div class="container vh-100 p-5" data-controller="shareable-link">
-  <% @contacts.each do |contact| %>
-    <div class="contact-container d-flex justify-content-between" data-shareable-link-target="contact" data-contact-id="<%= contact.id %>">
-      <div class="d-flex flex-column mb-2">
-        <h5 class="mb-0 contact-name"><%= contact.name.capitalize %></h5>
-        <%= content_tag(:span, I18n.l(contact.birthday, format: '%d de %B'), class: "date-written fs-6 fst-italic") %>
-      </div>
-      <button data-action="click->shareable-link#addContact" data-contact-id="<%= contact.id %>">
-        Add Shared Contact
-      </button>
+  <div class="main-page m-5 p-0 d-flex flex-column">
+    <div class="d-flex flex-column justify-content-center mt-0 mb-3">
+      <h1 class="index-title text-center">Adicione os aniversariantes de <%= @sharing_user.first_name %> à sua conta!</h1>
+      <%= form_with url: shareable_link_path(id: @sharing_user.shareable_token), method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Encontre um contato"
+            %>
+        <%= submit_tag "Procurar", name: "", class: "btn btn-primary" %>
+      <% end %>
     </div>
-  <% end %>
-</div>
-<div data-turbo-frame="flash">
-  <%= render "shared/flashes" %>
-</div>
+    <div class="p-5">
+      <% @contacts.each do |contact| %>
+        <div class="contact-container d-flex justify-content-between" data-shareable-link-target="contact" data-contact-id="<%= contact.id %>">
+          <div class="d-flex flex-column mb-2">
+            <h5 class="mb-0 contact-name"><%= contact.name.capitalize %></h5>
+            <%= content_tag(:span, I18n.l(contact.birthday, format: '%d de %B'), class: "date-written fs-6 fst-italic") %>
+          </div>
+          <button class="btn" data-action="click->shareable-link#addContact" data-contact-id="<%= contact.id %>">
+            <i class="fa-solid fa-person-circle-plus"></i>
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
