@@ -30,6 +30,7 @@ class ShareableLinkController < ApplicationController
     if new_contact.save
       render json: { success: true, message: 'Contact added successfully.' }, notice: 'Aniversariante adicionado!'
     else
+      flash.now[:alert] = 'Já existe um aniversariante com essas informações.'
       render json: { success: false, message: 'Failed to add contact.' }, status: :unprocessable_entity, notice: 'Já existe um aniversariante com essas informações.'
     end
   end
