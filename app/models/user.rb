@@ -13,7 +13,6 @@ class User < ApplicationRecord
   validates :shareable_token, uniqueness: true
 
   def generate_shareable_token
-    self.shareable_token ||= Devise.friendly_token
+    self.shareable_token = Devise.friendly_token
   end
-
 end
