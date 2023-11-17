@@ -5,14 +5,19 @@ class ShareableLinkController < ApplicationController
     authorize :shareable_link, :show?
     @user = current_user
     @sharing_user = User.find_by(shareable_token: params[:id])
-    @contacts = @sharing_user.contacts if @sharing_user.present?
 
     if params[:query].present? && @sharing_user.present?
       current_user_contacts = current_user.contacts.pluck(:name, :birthday)
-      @contacts = @sharing_user.contacts.where.not(name: current_user_contacts.map(&:first), birthday: current_user_contacts.map(&:last)).search_by_name(params[:query])
+      @contacts = @sharing_user.contacts.where.not(
+        name: current_user_contacts.map(&:first),
+        birthday: current_user_contacts.map(&:last)
+      ).search_by_name(params[:query]).order(:name)
     elsif @sharing_user.present?
       current_user_contacts = current_user.contacts.pluck(:name, :birthday)
-      @contacts = @sharing_user.contacts.where.not(name: current_user_contacts.map(&:first), birthday: current_user_contacts.map(&:last))
+      @contacts = @sharing_user.contacts.where.not(
+        name: current_user_contacts.map(&:first),
+        birthday: current_user_contacts.map(&:last)
+      ).order(:name)
     else
       error_not_found
     end
