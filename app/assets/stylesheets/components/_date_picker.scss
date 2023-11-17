@@ -1,0 +1,175 @@
+// Define colors
+$primary-bg-color: #e2e2e2;
+$button-bg-color: #000;
+$button-hover-color: grey;
+$header-bg-color: grey;
+$header-text-color: #fff;
+$result-text-color: grey;
+$calendar-bg-color: #fff;
+$calendar-header-bg-color: grey;
+$calendar-hover-color: rgba(0, 0, 0, 0.02);
+$active-color: #68768A;
+
+.date-picker {
+  margin: 200px auto;
+  width: 260px;
+  height: auto;
+  max-height: 50px;
+  background: $primary-bg-color;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s 0s ease-in-out;
+
+  .input {
+    width: 100%;
+    height: 50px;
+    font-size: 0;
+    cursor: pointer;
+
+    .result, button {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .result {
+      width: calc(100% - 50px);
+      height: 50px;
+      line-height: 50px;
+      font-size: 16px;
+      padding: 0 10px;
+      color: $result-text-color;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 50px;
+      height: 50px;
+      background-color: $button-bg-color;
+      color: white;
+      line-height: 50px;
+      border: 0;
+      font-size: 18px;
+      padding: 0;
+      &:hover {
+        background-color: $button-hover-color;
+      }
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+
+  .calendar {
+    position: relative;
+    width: 100%;
+    background: $calendar-bg-color;
+    border-radius: 0;
+    overflow: hidden;
+
+    .ui-datepicker-inline {
+      position: relative;
+      width: 100%;
+    }
+
+    .ui-datepicker-header {
+      height: 100%;
+      line-height: 50px;
+      background: $calendar-header-bg-color;
+      color: $header-text-color;
+      margin-bottom: 10px;
+    }
+
+    .ui-datepicker-prev, .ui-datepicker-next {
+      width: 20px;
+      height: 20px;
+      text-indent: 9999px;
+      border: 2px solid $header-text-color;
+      border-radius: 100%;
+      cursor: pointer;
+      overflow: hidden;
+      margin-top: 12px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 4px;
+        height: 4px;
+        border-left: 2px solid $header-text-color;
+        border-bottom: 2px solid $header-text-color;
+      }
+    }
+
+    .ui-datepicker-prev {
+      float: left;
+      margin-left: 12px;
+      &:after {
+        transform: rotate(45deg);
+        margin: -43px 0px 0px 8px;
+      }
+    }
+
+    .ui-datepicker-next {
+      float: right;
+      margin-right: 12px;
+      &:after {
+        transform: rotate(-135deg);
+        margin: -43px 0px 0px 6px;
+      }
+    }
+
+    .ui-datepicker-prev:hover, .ui-datepicker-next:hover, .ui-datepicker-prev:hover:after, .ui-datepicker-next:hover:after {
+      border-color: $active-color;
+    }
+
+    .ui-datepicker-title {
+      text-align: center;
+    }
+
+    .ui-datepicker-calendar {
+      width: 100%;
+      text-align: center;
+    }
+
+    .ui-datepicker-calendar thead tr th span {
+      display: block;
+      width: 100%;
+      color: $header-text-color;
+      margin-bottom: 5px;
+      font-size: 13px;
+    }
+
+    .ui-state-default {
+      display: block;
+      text-decoration: none;
+      color: #b5b5b5;
+      line-height: 40px;
+      font-size: 12px;
+      &:hover {
+        background: $calendar-hover-color;
+      }
+    }
+
+    .ui-state-highlight {
+      color: $active-color;
+    }
+
+    .ui-state-active {
+      color: #000;
+      background-color: rgba(131, 146, 167, 0.12);
+      font-weight: 600;
+    }
+
+    .ui-datepicker-unselectable .ui-state-default {
+      color: #eee;
+      border: 2px solid transparent;
+    }
+  }
+
+  &.open {
+    max-height: 400px;
+    .input button {
+      background: $button-bg-color;
+    }
+  }
+}

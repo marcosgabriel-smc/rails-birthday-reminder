@@ -4,21 +4,25 @@
 </button>
 <!-- Modal -->
 <div class="modal fade" id="newContactModal" tabindex="-1" aria-labelledby="newContactModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="newContactModalLabel">Crie um Novo Contato</h1>
+        <h1 class="modal-title fs-5" id="newContactModalLabel">Adicione um novo aniversariante</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <%= simple_form_for(contact) do |f| %>
+      <%= form_for(contact, data: { controller: "datepicker" } ) do |f| %>
         <div class="modal-body">
           <div class="form-inputs">
-            <%= f.input :name %>
-            <%= f.input :birthday, order: [:day, :month, :year] %>
+            <%= f.label :name, "Nome" %>
+            <%= f.text_field :name, class: "form-control" %>
+            <%= f.label :birthday, "Data de Aniversário" %>
+            <div>
+              <%= f.date_field :birthday, order: [:day, :month, :year], class: "form-control birthday-date" %>
+            </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary"><%= f.button :submit %></button>
+          <%= f.submit "Adicionar", class: "btn" %>
         </div>
       <% end %>
     </div>
