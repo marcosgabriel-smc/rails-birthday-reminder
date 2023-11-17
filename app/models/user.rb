@@ -5,7 +5,7 @@ class User < ApplicationRecord
   before_create :generate_shareable_token
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :contacts, dependent: :destroy
 
