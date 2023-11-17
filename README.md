@@ -13,3 +13,4 @@ TO-DO
 - Group logic for contacts Eg. family, friends, worc etc.
 - Create tests
 - Mailer
+- Translate calendar to portuguese

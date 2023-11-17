@@ -1,16 +1,16 @@
 import { Controller } from "@hotwired/stimulus";
 import flatpickr from "flatpickr";
-// import { Portuguese} from "flatpickr/dist/l10n/ru.js"
+import "flatpickr/dist/l10n/pt.js"
 
 
+// /flatpickr/dist/esm/l10n/pt.js
 export default class extends Controller {
 
   connect() {
-    console.log("funfa")
     flatpickr(".birthday-date", {
-      // "locale": "ru",
+      locale: "pt",
       altInput: true,
-      altFormat: "F j, Y",
+      altFormat: "j F, Y",
       dateFormat: "Y-m-d",
       inline: true
     })

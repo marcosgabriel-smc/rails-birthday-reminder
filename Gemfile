@@ -84,3 +84,4 @@ gem "faker"
 gem "httparty"
 gem "pry"
 gem "pg_search"
+gem "whenever", require: false
