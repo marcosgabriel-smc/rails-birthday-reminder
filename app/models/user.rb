@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   validates :telegram_id, presence: true
   validates :shareable_token, uniqueness: true
+  validates :telegram_id, uniqueness: true
 
   def generate_shareable_token
     self.shareable_token = Devise.friendly_token

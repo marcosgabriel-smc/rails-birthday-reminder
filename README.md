@@ -5,12 +5,11 @@
 
 TO-DO
 
-- Implement cron job for daily birtday checks / biweekly token update
-- Devise pages design
 - Contacs index final touches in design and responsivness
+- Devise pages design
 - Customize 404 and Errors
 - About page
-- Group logic for contacts Eg. family, friends, worc etc.
+- Implement cron job for daily birtday checks / biweekly token update
 - Create tests
-- Mailer
-- Translate calendar to portuguese
+- Mailer - Customize emails
+- Group logic for contacts Eg. family, friends, worc etc.

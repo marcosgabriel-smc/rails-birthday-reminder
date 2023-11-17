@@ -21,7 +21,7 @@ marcos = User.create!(
     first_name: 'Marcos',
     last_name: 'Gabriel',
     password: '123456',
-    email: 'marcos@birthday.com',
+    email: ENV['MY_EMAIL'],
     telegram_id: ENV['MY_TELEGRAM_ID']
   }
 )
