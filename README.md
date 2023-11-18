@@ -13,3 +13,6 @@ TO-DO
 - Create tests
 - Mailer - Customize emails
 - Group logic for contacts Eg. family, friends, worc etc.
+- Footer
+- Responsive layout index contacts
+- Layout Forms for CRUD

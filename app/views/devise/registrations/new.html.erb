@@ -1,31 +1,39 @@
-<div class="container p-5">
-  <h2>Sign up</h2>
-  <%= simple_form_for(@new_user, url: registration_path(@new_user), data: { turbo: :false }) do |f| %>
-    <%= f.error_notification %>
-    <div class="form-inputs">
-      <%= f.input :email,
+<div class="container vh-100 p-5 d-flex flex-column align-items-center justify-content-center">
+  <div class="main-page w-50 h-auto p-3 d-flex flex-column justify-content-between">
+    <div>
+      <h2 class="mb-2 text-center">Preencha as Informações abaixo para se registrar</h2>
+      <%= simple_form_for(@new_user, url: registration_path(@new_user), data: { turbo: :false }) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
-      <%= f.input :first_name,
+          <%= f.input :first_name,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "first-name", value: @new_user.first_name }%>
-      <%= f.input :last_name,
+                input_html: { autocomplete: "first-name", value: @new_user.first_name },
+                label: "Nome"%>
+          <%= f.input :last_name,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "last-name", value: @new_user.last_name }%>
-      <%= f.input :password,
+                input_html: { autocomplete: "last-name", value: @new_user.last_name },
+                label: "Sobrenome"%>
+          <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
+                input_html: { autocomplete: "new-password" },
+                label: "Senha" %>
+          <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
-      <%= f.input :telegram_id, as: :hidden, input_html: { value: @new_user.telegram_id } %>
+                input_html: { autocomplete: "new-password" },
+                label: "Confirme sua senha" %>
+          <%= f.input :telegram_id, as: :hidden, input_html: { value: @new_user.telegram_id } %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Inscrever-se", class: "btn btn-contacts inside-link" %>
+        </div>
+      <% end %>
     </div>
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
-    </div>
-  <% end %>
+  </div>
 </div>

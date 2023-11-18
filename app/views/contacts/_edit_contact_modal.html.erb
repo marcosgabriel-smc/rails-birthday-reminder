@@ -5,18 +5,18 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="editContactModalLabel">Edit Contact</h1>
+        <h1 class="modal-title fs-5" id="editContactModalLabel">Editar aniversariante</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <%= simple_form_for(contact, method: :patch) do |f| %>
           <div class="form-inputs">
-            <%= f.input :name, input_html: { value: contact.name } %>
-            <%= f.input :birthday, order: [:day, :month, :year], input_html: { value: contact.birthday } %>
+            <%= f.input :name, input_html: { value: contact.name }, label: "Nome" %>
+            <%= f.input :birthday, order: [:day, :month, :year], input_html: { value: contact.birthday }, label: "Data de Aniversário" %>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary"><%= f.button :submit, 'Update Contact' %></button>
+          <button type="button" class="btn btn-contacts"><%= f.button :submit, 'Atualizar' %></button>
         </div>
       <% end %>
     </div>

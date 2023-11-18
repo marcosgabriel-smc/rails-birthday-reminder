@@ -1,25 +1,25 @@
 <div class="container vh-100 p-5" data-controller="shareable-link">
   <div class="main-page m-5 p-0 d-flex flex-column">
     <div class="w-100 d-flex justify-content-start">
-      <%= link_to "Voltar à Pagina Principal", contacts_path, class: "text-reset mx-2", style: "text-decoration: none;" %>
+      <%= link_to "<- Voltar aos seus Contatos", contacts_path, class: "text-reset mx-2 inside-link" %>
     </div>
     <div class="px-5 mt-3">
       <div class="d-flex flex-column justify-content-center mt-0 mb-3">
         <h1 class="index-title text-center">Adicione os aniversariantes de <%= @sharing_user.first_name %> à sua conta!</h1>
-        <div class=" mt-2 px-5">
-          <%= form_with url: shareable_link_path(id: @sharing_user.shareable_token), method: :get, class: "d-flex" do %>
+        <div class="w-100 my-3 px-5 d-flex justify-content-center">
+          <%= form_with url: shareable_link_path(id: @sharing_user.shareable_token), method: :get, class: "d-flex w-50" do %>
             <%= text_field_tag :query,
               params[:query],
-              class: "form-control",
+              class: "form-control custom-search-input",
               placeholder: "Encontre um contato"
             %>
-            <%= submit_tag "Procurar", name: "", class: "btn btn-dark" %>
+            <%= submit_tag "Procurar", name: "", class: "btn btn-contacts" %>
           <% end %>
         </div>
       </div>
       <div class="px-5">
         <% @contacts.each do |contact| %>
-          <div class="contact-container d-flex justify-content-between" data-shareable-link-target="contact" data-contact-id="<%= contact.id %>">
+          <div class="contact-container d-flex justify-content-between month-written" data-shareable-link-target="contact" data-contact-id="<%= contact.id %>">
             <div class="d-flex flex-column mb-2">
               <h5 class="mb-0 contact-name"><%= contact.name.capitalize %></h5>
               <%= content_tag(:span, I18n.l(contact.birthday, format: '%d de %B'), class: "date-written fs-6 fst-italic") %>

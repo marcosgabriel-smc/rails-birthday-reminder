@@ -6,17 +6,23 @@
     <div class="px-5">
       <div class="d-flex flex-column justify-content-center mt-0 mb-3">
         <h1 class="index-title text-center">Aniversariantes Cadastrados</h1>
-        <div class="d-flex">
-          <%= render "sharing_link_modal", user: @user %>
-          <%= render "new_contact_modal", contact: @contact %>
-          <%= form_with url: contacts_path, method: :get, class: "d-flex" do %>
-            <%= text_field_tag :query,
+        <div class="row align-items-center mt-4">
+          <div class="col d-flex justify-content-center">
+            <%= render "new_contact_modal", contact: @contact %>
+          </div>
+          <div class="col-6">
+            <%= form_with url: contacts_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query,
               params[:query],
-              class: "form-control",
+              class: "form-control custom-search-input",
               placeholder: "Encontre um contato"
             %>
-            <%= submit_tag "Procurar", name: "", class: "btn btn-primary" %>
-          <% end %>
+              <%= submit_tag "Procurar", name: "", class: "btn btn-contacts" %>
+            <% end %>
+          </div>
+          <div class="col d-flex justify-content-center">
+            <%= render "sharing_link_modal", user: @user %>
+          </div>
         </div>
       </div>
       <% if params[:query].present? %>
@@ -76,5 +82,5 @@
       <% end %>
     </div>
   </div>
-  <%= link_to "Send Messages", send_message_path, data: { turbo_method: :post } %>
+  <!-- <%= link_to "Send Messages", send_message_path, data: { turbo_method: :post } %> -->
 </div>

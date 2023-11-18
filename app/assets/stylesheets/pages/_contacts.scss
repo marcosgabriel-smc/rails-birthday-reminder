@@ -4,26 +4,25 @@
 }
 
 .index-title {
-  color: $green;
+  color: $purple;
   // animation: colorAnimation 6s infinite;
 }
 
 @keyframes colorAnimation {
   0% {
-    color: $red;
+    color: $green;
   }
   50% {
-    color: $light-yellow;
+    color: $red;
   }
   100% {
     color: $green;
   }
 }
 
-
 .month-written {
-  border-bottom: 3px solid $red;
-  color: $red;
+  border-bottom: 3px solid $pink;
+  color: $pink;
 }
 
 .contact-name {
@@ -33,4 +32,18 @@
 
 .date-written {
   font-family: 'Times New Roman', Times, serif;
+  color: $pink;
+}
+
+.btn-contacts {
+  color: $red;
+  border-color: $red;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.custom-search-input {
+  background-color: $light-yellow;
+  // border: 2px solid $red;
+  color: $black;
 }
