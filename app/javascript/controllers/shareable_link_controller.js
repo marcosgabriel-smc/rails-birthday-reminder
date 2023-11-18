@@ -4,6 +4,8 @@ export default class extends Controller {
   static targets = ["contact"];
 
   addContact(event) {
+    console.log(event)
+    console.log("Button clicked:", event.target);
     const contactId = event.target.dataset.contactId;
 
     console.log(`Adding contact with ID: ${contactId}`);

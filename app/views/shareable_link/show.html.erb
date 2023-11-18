@@ -25,8 +25,8 @@
               <%= content_tag(:span, I18n.l(contact.birthday, format: '%d de %B'), class: "date-written fs-6 fst-italic") %>
             </div>
             <button class="btn d-flex align-items-center" data-action="click->shareable-link#addContact" data-contact-id="<%= contact.id %>">
-              <p class="my-0">Adicionar</p>
-              <i class=" mx-2 my-0 fa-solid fa-person-circle-plus"></i>
+              <p class="my-0" data-contact-id="<%= contact.id %>">Adicionar</p>
+              <i class=" mx-2 my-0 fa-solid fa-person-circle-plus" data-contact-id="<%= contact.id %>"></i>
             </button>
           </div>
         <% end %>
