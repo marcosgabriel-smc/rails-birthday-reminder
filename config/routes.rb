@@ -18,5 +18,7 @@ Rails.application.routes.draw do
 
   resources :shareable_link, only: [:show, :create]
 
+  get 'pages/about', to: 'pages#about'
+
   match '*unmatched', to: 'application#error_not_found', via: :all
 end

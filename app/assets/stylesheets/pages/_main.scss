@@ -3,7 +3,9 @@ body {
   background-color: $light-yellow;
   background-size: 40px 40px;
   animation: snakeAnimation 4s linear infinite;
-  margin: 0; /* Remove default margin */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 @keyframes snakeAnimation {
@@ -13,6 +15,23 @@ body {
   100% {
     background-position: 40px -40px;
   }
+}
+
+footer {
+  margin-top: auto;
+
+}
+
+.footer-icon{
+  color: black
+}
+
+.social-buttons {
+  color: black;
+}
+
+.social-buttons > a {
+  color: black;
 }
 
 .login {

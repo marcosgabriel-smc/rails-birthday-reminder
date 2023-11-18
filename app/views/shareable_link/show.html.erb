@@ -1,4 +1,4 @@
-<div class="container vh-100 p-5" data-controller="shareable-link">
+<div class="container min-vh-100 p-5" data-controller="shareable-link">
   <div class="main-page m-5 p-0 d-flex flex-column">
     <div class="w-100 d-flex justify-content-start">
       <%= link_to "<- Voltar aos seus Contatos", contacts_path, class: "text-reset mx-2 inside-link" %>
@@ -19,8 +19,8 @@
       </div>
       <div class="px-5">
         <% @contacts.each do |contact| %>
-          <div class="contact-container d-flex justify-content-between month-written" data-shareable-link-target="contact" data-contact-id="<%= contact.id %>">
-            <div class="d-flex flex-column mb-2">
+          <div class="contact-container d-flex justify-content-between month-written my-3" data-shareable-link-target="contact" data-contact-id="<%= contact.id %>">
+            <div class="d-flex flex-column mb-1">
               <h5 class="mb-0 contact-name"><%= contact.name.capitalize %></h5>
               <%= content_tag(:span, I18n.l(contact.birthday, format: '%d de %B'), class: "date-written fs-6 fst-italic") %>
             </div>
