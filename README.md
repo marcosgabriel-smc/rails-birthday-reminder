@@ -5,14 +5,14 @@
 
 TO-DO
 
-- Contacs index final touches in design and responsivness
-- Devise pages design
+- Customize layout in sign-in page
+- RESPONSIVNESS IN ALL PAGES
 - Customize 404 and Errors
-- About page
 - Implement cron job for daily birtday checks / biweekly token update
-- Create tests
+
+AFTER DEPLOYMENT
+
 - Mailer - Customize emails
 - Group logic for contacts Eg. family, friends, worc etc.
-- Footer
-- Responsive layout index contacts
-- Layout Forms for CRUD
+- Customize layout forms for CRUD
+- Create tests

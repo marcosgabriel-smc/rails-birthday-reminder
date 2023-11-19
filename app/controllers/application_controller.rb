@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, except: [:telegram_login]
+  before_action :authenticate_user!, except: %i[telegram_login about]
 
   include Pundit::Authorization
 

@@ -1,2 +1,21 @@
-<h1>Pages#about</h1>
-<p>Find me in app/views/pages/about.html.erb</p>
+<div class="container min-vh-100 p-5 d-flex flex-column align-items-center justify-content-center">
+  <div class="main-page w-50 h-auto p-3 d-flex flex-column justify-content-between">
+    <div>
+      <h2 class="mb-2 text-center">Bem-Vindo ao Lembrete Amigo</h2>
+      <p>A ideia desse bot foi que ninguém esquece o aniversário de um amigo ou familiar</p>
+      <h4>"Mas como funciona?"</h4>
+      <p>Quando você se cadastra aqui, precisamos que você se autentique com o Telegram, para que possamos te enviar os lembretes por mensagem</p>
+      <p>Daí, conforme você vai incluindo os seus aniversariantes na lista, nós vamos, diariamente, verificando se é o aniversário de alguem e, se for, te enviamos uma mensagem</p>
+      <h4>"Ah mas dá muito trabalho adicionar um por vez"</h4>
+      <p>Para facilitar sua vida, nós criamos a possibilidade de você compartilhar sua "agenda" com seus amigos. Ou seja, quando for compartilhar esse bot com alguém, já manda junto seu link de compartilhamento para a pessoa poder incluir os seus contatos na lista dela também</p>
+      <h4>"E quem foi que fez isso?"</h4>
+      <p>Eu, Marcos :&#41</p>
+      <p>Se tiver gostado, quiser dar uma recomendação, crítica ou trocar uma idéia, todos os meus contatos tão aqui embaixo!</p>
+    </div>
+    <div class="d-flex justify-content-end">
+      <div class="inside-link">
+        <%= link_to "Voltar", :back, class: "text-reset text-decoration-none" %>
+      </div>
+    </div>
+  </div>
+</div>
