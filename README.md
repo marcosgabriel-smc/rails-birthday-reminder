@@ -5,11 +5,7 @@
 
 TO-DO
 
-- Customize layout in sign-in page
-- RESPONSIVNESS IN ALL PAGES
-- Customize 404 and Errors
 - Implement cron job for daily birtday checks / biweekly token update
-- Edit password page
 
 AFTER DEPLOYMENT
 
@@ -18,3 +14,5 @@ AFTER DEPLOYMENT
 - Customize layout forms for CRUD
 - Create tests
 - Hide button in sharing_link
+- Make changes specifically to 404 (footer + background)
+- Create a specific table for the shareable_token
