@@ -20,5 +20,5 @@ Rails.application.routes.draw do
 
   get 'pages/about', to: 'pages#about', as: :about
 
-  match '*unmatched', to: 'application#error_not_found', via: :all
+  match '*unmatched', to: 'application#error_not_found', via: :all, as: :error
 end

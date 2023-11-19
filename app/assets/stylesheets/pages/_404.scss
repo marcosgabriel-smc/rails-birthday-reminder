@@ -1,0 +1,11 @@
+.error-message {
+  background-color: $dark-yellow;
+  border-radius: 20px;
+  width: 45rem;
+}
+
+@media (max-width: 800px) {
+  .error-message {
+    width: 100%;
+  }
+}
