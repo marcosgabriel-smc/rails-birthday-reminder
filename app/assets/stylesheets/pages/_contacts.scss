@@ -3,6 +3,29 @@
   border-radius: 20px;
 }
 
+.contacts-display {
+  margin: 1.25rem;
+}
+
+.contacts-wrapper {
+  padding: 0 48px;
+}
+
+@media (max-width: 800px) {
+  .main-page {
+    width: 100%;
+  }
+
+  .contacts-display {
+    margin: 0;
+  }
+
+  .contacts-wrapper {
+    padding: 0;
+  }
+}
+
+
 .index-title {
   color: $purple;
   // animation: colorAnimation 6s infinite;

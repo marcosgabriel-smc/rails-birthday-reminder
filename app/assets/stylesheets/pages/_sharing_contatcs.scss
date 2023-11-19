@@ -1,0 +1,9 @@
+.sharing-search-bar {
+  width: 50%;
+}
+
+@media (max-width: 800px) {
+  .sharing-search-bar {
+    width: 100%;
+  }
+}

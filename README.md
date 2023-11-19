@@ -9,6 +9,7 @@ TO-DO
 - RESPONSIVNESS IN ALL PAGES
 - Customize 404 and Errors
 - Implement cron job for daily birtday checks / biweekly token update
+- Edit password page
 
 AFTER DEPLOYMENT
 
@@ -16,3 +17,4 @@ AFTER DEPLOYMENT
 - Group logic for contacts Eg. family, friends, worc etc.
 - Customize layout forms for CRUD
 - Create tests
+- Hide button in sharing_link

@@ -1,13 +1,13 @@
-<div class="container min-vh-100 p-5" data-controller="shareable-link">
-  <div class="main-page m-5 p-0 d-flex flex-column">
+<div class="container min-vh-100 d-flex flex-column align-items-center justify-content-center" data-controller="shareable-link">
+  <div class="main-page contacts-display p-0 d-flex flex-column">
     <div class="w-100 d-flex justify-content-start">
       <%= link_to "<- Voltar aos seus Contatos", contacts_path, class: "text-reset mx-2 inside-link" %>
     </div>
-    <div class="px-5 mt-3">
+    <div class="contacts-wrapper mt-3">
       <div class="d-flex flex-column justify-content-center mt-0 mb-3">
         <h1 class="index-title text-center">Adicione os aniversariantes de <%= @sharing_user.first_name %> à sua conta!</h1>
-        <div class="w-100 my-3 px-5 d-flex justify-content-center">
-          <%= form_with url: shareable_link_path(id: @sharing_user.shareable_token), method: :get, class: "d-flex w-50" do %>
+        <div class="w-100 my-3 contacts-wrapper d-flex justify-content-center">
+          <%= form_with url: shareable_link_path(id: @sharing_user.shareable_token), method: :get, class: "d-flex sharing-search-bar" do %>
             <%= text_field_tag :query,
               params[:query],
               class: "form-control custom-search-input",
@@ -17,7 +17,7 @@
           <% end %>
         </div>
       </div>
-      <div class="px-5">
+      <div class="contacts-wrapper">
         <% @contacts.each do |contact| %>
           <div class="contact-container d-flex justify-content-between month-written my-3" data-shareable-link-target="contact" data-contact-id="<%= contact.id %>">
             <div class="d-flex flex-column mb-1">

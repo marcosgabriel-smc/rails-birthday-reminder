@@ -63,24 +63,6 @@ footer {
   transform-origin: left;
 }
 
-.button {
-  background: none;
-  border: 2px solid;
-  font: inherit;
-  line-height: 1;
-  margin: 0.5em;
-  padding: 1em 2em;
-}
-
-.btn-one:hover, .btn-one:focus {
-  animation: pulse 1s;
-  box-shadow: 0 0 0 2em transparent;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 $green; }
-}
-
 h1, h2, h3, h4, h5 {
   color: $green,
 }

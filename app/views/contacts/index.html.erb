@@ -1,16 +1,16 @@
-<div class="container min-vh-100 p-5">
-  <div class="main-page m-5 p-0 d-flex flex-column">
+<div class="container min-vh-100 d-flex flex-column align-items-center justify-content-center">
+  <div class="main-page contacts-display p-0 d-flex flex-column">
     <div class="w-100 d-flex justify-content-end">
       <%= render "setting_menu" %>
     </div>
-    <div class="px-5">
+    <div class="contacts-wrapper">
       <div class="d-flex flex-column justify-content-center mt-0 mb-3">
         <h1 class="index-title text-center">Aniversariantes Cadastrados</h1>
         <div class="row align-items-center mt-4">
-          <div class="col d-flex justify-content-center">
+          <div class="col-md mb-3 d-flex justify-content-center">
             <%= render "new_contact_modal", contact: @contact %>
           </div>
-          <div class="col-6">
+          <div class="col-md-6 mb-3">
             <%= form_with url: contacts_path, method: :get, class: "d-flex" do %>
               <%= text_field_tag :query,
               params[:query],
@@ -20,7 +20,7 @@
               <%= submit_tag "Procurar", name: "", class: "btn btn-contacts" %>
             <% end %>
           </div>
-          <div class="col d-flex justify-content-center">
+          <div class="col-md mb-3 d-flex justify-content-center">
             <%= render "sharing_link_modal", user: @user %>
           </div>
         </div>
