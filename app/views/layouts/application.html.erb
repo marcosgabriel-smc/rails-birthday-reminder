@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsBirthdayReminder</title>
+    <title>Lembrete Amigo</title>
     <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/confetti.css">
@@ -10,6 +10,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%# <script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script> %>
+    <%= favicon_link_tag asset_path('party_emoji.png') %>
   </head>
   <body >
     <%= render 'shared/flashes' %>
