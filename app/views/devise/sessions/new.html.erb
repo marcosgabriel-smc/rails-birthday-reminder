@@ -33,7 +33,7 @@
       src="https://telegram.org/js/telegram-widget.js?22"
       data-telegram-login="Birthday_Reminderr_Bot"
       data-size="large"
-      data-auth-url="https://www.lembreteamigo.com/contacts/auth/telegram/callback"
+      data-auth-url="<%= ENV['CALLBACK_URL'] %>/contacts/auth/telegram/callback"
       data-request-access="write"></script>
     </div>
     <div class="d-flex mb-3 justify-content-around">
