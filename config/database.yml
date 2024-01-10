@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: rails_birthday_reminder_production
-  username: rails_birthday_reminder
+  username: birthday_reminder
   password: <%= ENV["RAILS_BIRTHDAY_REMINDER_DATABASE_PASSWORD"] %>
