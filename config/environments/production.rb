@@ -72,7 +72,7 @@ Rails.application.configure do
   config.action_mailer.default_options = { from: ENV['EMAIL'] }
 
   config.action_mailer.default_url_options = {
-    host: 'gmail.com', # NEED TO BE ADAPTED
+    host: 'lembreteamigo.com',
     protocol: 'http'
   }
 

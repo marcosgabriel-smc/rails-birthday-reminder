@@ -16,4 +16,8 @@ class User < ApplicationRecord
   def generate_shareable_token
     self.shareable_token = Devise.friendly_token
   end
+
+  def self.update_tokens
+    User.update_all(shareable_token: Devise.friendly_token)
+  end
 end
