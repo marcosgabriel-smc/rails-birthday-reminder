@@ -11,8 +11,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <a href="http://127.0.0.1/contacts/shareable_link/<%= user.shareable_token %>" target="_blank", class="text-break">
-          http://127.0.0.1/shareable_link/<%= user.shareable_token %>
+        <a href="<%= ENV['CALLBACK_URL'] %>/contacts/shareable_link/<%= user.shareable_token %>" target="_blank", class="text-break">
+          <%= ENV['CALLBACK_URL'] %>/shareable_link/<%= user.shareable_token %>
         </a>
       </div>
     </div>
