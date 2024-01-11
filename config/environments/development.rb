@@ -19,7 +19,7 @@ Rails.application.configure do
   # config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = { from: ENV['EMAIL'] }
+  config.action_mailer.default_options = { from: ENV['APPLICATION_EMAIL'] }
 
   config.action_mailer.default_url_options = {
     host: 'localhost:3000'
@@ -28,13 +28,14 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'gmail.com',
-    user_name: Rails.application.credentials.dig(:google_smtp, :email),
-    password: Rails.application.credentials.dig(:google_smtp, :password),
+    address: 'smtp.secureserver.net',
+    port: 465,
+    domain: 'lembreteamigo.com',
+    user_name: ENV['APPLICATION_EMAIL'],
+    password: ENV['EMAIL_PASSWORD'],
     authentication: 'plain',
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
+    ssl: true
   }
 
   # Enable server timing

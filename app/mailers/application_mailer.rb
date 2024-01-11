@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'lembreteamigo@gmail.com'
+  default from: ENV['APPLICATION_EMAIL']
   layout 'mailer'
 end
