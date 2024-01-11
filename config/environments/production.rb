@@ -77,19 +77,17 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.default_options = { from: ENV['EMAIL'] }
+  config.action_mailer.default_options = { from: ENV['APPLICATION_EMAIL'] }
 
   config.action_mailer.smtp_settings = {
-    address: 'smtp.secureserver.net',
+    address: 'smtpout.secureserver.net',
     port: 465,
     domain: 'lembreteamigo.com',
     user_name: ENV['APPLICATION_EMAIL'],
     password: ENV['EMAIL_PASSWORD'],
-    authentication:       :login,
-    enable_starttls_auto: false
-    # authentication: 'plain',
-    # enable_starttls_auto: true,
-    # ssl: true
+    authentication: :login,
+    enable_starttls_auto: true,
+    ssl: true
   }
 
 
