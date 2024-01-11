@@ -62,21 +62,22 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "rails_birthday_reminder_production"
 
-  config.action_mailer.perform_caching = false
 
-    ## DEVISE MAILER
+  ## DEVISE MAILER
 
   # config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = { from: ENV['EMAIL'] }
 
+  config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = {
-    host: 'lembreteamigo.com',
-    protocol: 'http'
+    host: 'lembreteamigo.com'
   }
-
   config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.default_options = { from: ENV['EMAIL'] }
 
   config.action_mailer.smtp_settings = {
     address: 'smtp.secureserver.net',
@@ -84,9 +85,11 @@ Rails.application.configure do
     domain: 'lembreteamigo.com',
     user_name: ENV['APPLICATION_EMAIL'],
     password: ENV['EMAIL_PASSWORD'],
-    authentication: 'plain',
-    enable_starttls_auto: true,
-    ssl: true
+    authentication:       :login,
+    enable_starttls_auto: false
+    # authentication: 'plain',
+    # enable_starttls_auto: true,
+    # ssl: true
   }
 
 
