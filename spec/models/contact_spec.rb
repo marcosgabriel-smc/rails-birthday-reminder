@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Contact Model' do
+RSpec.describe Contact, type: :model do
   context 'validations' do
     it 'is invalid without a name' do
       contact = build(:contact, name: nil)
@@ -29,8 +29,8 @@ RSpec.describe 'Contact Model' do
   context 'scopes' do
     before do
       @user = create(:user)
-      @contact1 = create(:contact, user: @user, name: 'Alice', birthday: '1990-01-01')
-      @contact2 = create(:contact, user: @user, name: 'Bob', birthday: '1990-02-01')
+      @contact1 = create(:contact, user: @user, name: 'Joao', birthday: '1990-01-01')
+      @contact2 = create(:contact, user: @user, name: 'Maria', birthday: '1990-02-01')
     end
 
     it 'groups contacts by month' do
